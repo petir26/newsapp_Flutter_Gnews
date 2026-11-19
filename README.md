@@ -2,6 +2,8 @@
 
 Aplikasi Flutter untuk membaca berita Indonesia dari GNews. Materi utama PDF sudah diterapkan: Dio, model response, error handling, FutureBuilder (loading/error/kosong/data), pilihan kategori, refresh, halaman detail, navigasi halaman di dalam `IndexedStack`, format tanggal Indonesia, dan dukungan gambar web.
 
+Untuk output aplikasi terdapat pada folder output/public. Berisi screen capture dari aplikasi yang sedang dijalankan hingga tes eror 400 hingga 404
+
 ## Menjalankan
 
 1. Salin `config/env.example.json` menjadi `config/env.json`.
