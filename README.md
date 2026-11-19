@@ -15,6 +15,10 @@ flutter run --dart-define-from-file=config/env.json
 
 Untuk Chrome, tambahkan `-d chrome` setelah `flutter run`. API key di build web terlihat di JavaScript browser; gunakan proxy production jika dipublikasikan.
 
+## Uji error dengan Postman CLI
+
+Salin `postman/env.example.json` menjadi `postman/env.json`, isi API key lokal, lalu ikuti [tutorial empat skenario error di Command Prompt](postman/README.md). File environment lokal tidak di-commit.
+
 ## Bagian latihan untuk dikerjakan
 
 Kedua latihan bagian 9 PDF sudah diterapkan:
