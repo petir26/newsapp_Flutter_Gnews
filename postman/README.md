@@ -7,17 +7,21 @@ Postman hanya mengirim request dan memperlihatkan status/body GNews. Pesan `ApiE
 
 ## Empat skenario yang konsisten
 
-```powershell
-# 1. Key berbentuk 32 karakter tetapi tidak terdaftar -> HTTP 401
+```bat
+REM Salin environment contoh dan isi key GNews di Notepad
+copy postman\env.example.json postman\env.json
+notepad postman\env.json
+
+REM 1. Key 32 karakter tetapi tidak terdaftar -> HTTP 401
 postman request GET "{{GNEWS_BASE_URL}}/top-headlines?country=id&lang=id&max=10&apikey=00000000000000000000000000000000" -e postman/env.json
 
-# 2. Format key salah -> HTTP 400
+REM 2. Format key salah -> HTTP 400
 postman request GET "{{GNEWS_BASE_URL}}/top-headlines?country=id&lang=id&max=10&apikey=salah123" -e postman/env.json
 
-# 3. Query pencarian kosong -> HTTP 400 dengan pesan parameter q
+REM 3. Query pencarian kosong -> HTTP 400 dengan pesan parameter q
 postman request GET "{{GNEWS_BASE_URL}}/search?country=id&lang=id&max=10&apikey={{GNEWS_API_KEY}}&q=" -e postman/env.json
 
-# 4. Endpoint salah -> HTTP 404
+REM 4. Endpoint salah -> HTTP 404
 postman request GET "{{GNEWS_BASE_URL}}/top-headline?country=id&lang=id&max=10&apikey={{GNEWS_API_KEY}}" -e postman/env.json
 ```
 
@@ -25,7 +29,7 @@ Pemetaan di aplikasi: 401 `API key salah atau tidak terdaftar`; 400 `Permintaan 
 
 Untuk membuktikan timeout di Postman CLI, beri batas waktu pendek pada request valid:
 
-```powershell
+```bat
 postman request GET "{{GNEWS_BASE_URL}}/top-headlines?country=id&lang=id&category=general&max=10&apikey={{GNEWS_API_KEY}}" -e postman/env.json --timeout 1
 ```
 
